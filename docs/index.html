@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TS Mastery Hub — Interactive TypeScript Learning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Animated Background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="nav-logo">TS</span>
+      <span class="nav-title">Mastery Hub</span>
+    </div>
+    <div class="nav-links">
+      <a href="#paths">Paths</a>
+      <a href="#resources">Resources</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#cheatsheet">Cheat Sheet</a>
+      <a href="#cli">CLI Tool</a>
+    </div>
+    <a href="https://github.com" class="nav-cta" target="_blank">⭐ Star on GitHub</a>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="hero-badge">🚀 Built by Red Hat engineers, for engineers</div>
+    <h1 class="hero-title">
+      Master <span class="gradient-text">TypeScript</span><br />
+      & Modern Web Dev
+    </h1>
+    <p class="hero-subtitle">
+      An interactive learning hub with structured paths, hands-on challenges,
+      curated resources, and a beautiful CLI tool. From fundamentals to advanced
+      patterns — everything you need to level up.
+    </p>
+    <div class="hero-actions">
+      <a href="#paths" class="btn btn-primary">
+        <span>📚</span> Explore Learning Paths
+      </a>
+      <a href="#cli" class="btn btn-secondary">
+        <span>⚡</span> Try the CLI Tool
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">4</span>
+        <span class="stat-label">Learning Paths</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">30+</span>
+        <span class="stat-label">Curated Resources</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">6</span>
+        <span class="stat-label">Interactive Challenges</span>
+      </div>
+      <div class="stat">
+        <span class="stat-number">8</span>
+        <span class="stat-label">Pro Tips & Patterns</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Learning Paths Section -->
+  <section id="paths" class="section">
+    <div class="section-header">
+      <h2 class="section-title">📚 Learning Paths</h2>
+      <p class="section-subtitle">Structured roadmaps from beginner to advanced, each with time estimates and resources</p>
+    </div>
+    <div class="paths-grid">
+      <div class="path-card" style="--accent: #3178c6">
+        <div class="path-icon">🏗️</div>
+        <h3>TypeScript Foundations</h3>
+        <p>Master the core type system from scratch — types, interfaces, generics, utility types, and advanced patterns.</p>
+        <div class="path-meta">
+          <span class="path-time">⏱️ ~20 hours</span>
+          <span class="path-modules">6 modules</span>
+        </div>
+        <div class="path-topics">
+          <span class="tag">Basic Types</span>
+          <span class="tag">Interfaces</span>
+          <span class="tag">Generics</span>
+          <span class="tag">Type Guards</span>
+          <span class="tag">Utility Types</span>
+          <span class="tag">Mapped Types</span>
+        </div>
+      </div>
+
+      <div class="path-card" style="--accent: #61dafb">
+        <div class="path-icon">⚛️</div>
+        <h3>React + TypeScript</h3>
+        <p>Build type-safe React applications — components, hooks, context, events, and advanced component patterns.</p>
+        <div class="path-meta">
+          <span class="path-time">⏱️ ~19 hours</span>
+          <span class="path-modules">6 modules</span>
+        </div>
+        <div class="path-topics">
+          <span class="tag">Typed Components</span>
+          <span class="tag">Hooks</span>
+          <span class="tag">Context</span>
+          <span class="tag">Events</span>
+          <span class="tag">HOCs</span>
+          <span class="tag">Testing</span>
+        </div>
+      </div>
+
+      <div class="path-card" style="--accent: #68bc71">
+        <div class="path-icon">🟩</div>
+        <h3>Node.js + TypeScript</h3>
+        <p>Build robust backend services — Express, databases with Prisma, API design, auth, and testing.</p>
+        <div class="path-meta">
+          <span class="path-time">⏱️ ~19 hours</span>
+          <span class="path-modules">6 modules</span>
+        </div>
+        <div class="path-topics">
+          <span class="tag">Express</span>
+          <span class="tag">Prisma</span>
+          <span class="tag">Zod</span>
+          <span class="tag">APIs</span>
+          <span class="tag">Auth</span>
+          <span class="tag">Testing</span>
+        </div>
+      </div>
+
+      <div class="path-card" style="--accent: #c21325">
+        <div class="path-icon">🧪</div>
+        <h3>Testing Mastery</h3>
+        <p>Write bulletproof tests — unit, integration, E2E, mocking, React Testing Library, and Playwright.</p>
+        <div class="path-meta">
+          <span class="path-time">⏱️ ~17 hours</span>
+          <span class="path-modules">6 modules</span>
+        </div>
+        <div class="path-topics">
+          <span class="tag">Vitest</span>
+          <span class="tag">Jest</span>
+          <span class="tag">RTL</span>
+          <span class="tag">Playwright</span>
+          <span class="tag">Mocking</span>
+          <span class="tag">CI/CD</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section id="roadmap" class="section section-dark">
+    <div class="section-header">
+      <h2 class="section-title">🗺️ Developer Roadmap</h2>
+      <p class="section-subtitle">A visual journey from TypeScript basics to full-stack mastery</p>
+    </div>
+    <div class="roadmap">
+      <div class="roadmap-line"></div>
+      <div class="roadmap-step" style="--step-color: #68bc71">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <span class="roadmap-phase">Phase 1</span>
+          <h3>TypeScript Foundations</h3>
+          <p>Basic Types → Interfaces → Functions → Generics → Utility Types</p>
+          <span class="roadmap-time">2-3 weeks</span>
+        </div>
+      </div>
+      <div class="roadmap-step" style="--step-color: #61dafb">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <span class="roadmap-phase">Phase 2</span>
+          <h3>React + TypeScript</h3>
+          <p>Components → Hooks → Context → Events → Advanced Patterns</p>
+          <span class="roadmap-time">2-3 weeks</span>
+        </div>
+      </div>
+      <div class="roadmap-step" style="--step-color: #68bc71">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <span class="roadmap-phase">Phase 3</span>
+          <h3>Node.js Backend</h3>
+          <p>Express → Prisma → Zod → APIs → Authentication → Deployment</p>
+          <span class="roadmap-time">2-3 weeks</span>
+        </div>
+      </div>
+      <div class="roadmap-step" style="--step-color: #c21325">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <span class="roadmap-phase">Phase 4</span>
+          <h3>Testing</h3>
+          <p>Unit Tests → Integration → E2E → CI/CD Pipelines</p>
+          <span class="roadmap-time">1-2 weeks</span>
+        </div>
+      </div>
+      <div class="roadmap-step" style="--step-color: #9b59b6">
+        <div class="roadmap-dot"></div>
+        <div class="roadmap-content">
+          <span class="roadmap-phase">Phase 5</span>
+          <h3>Advanced Patterns</h3>
+          <p>Conditional Types → Template Literals → Monorepos → Architecture</p>
+          <span class="roadmap-time">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cheat Sheet Section -->
+  <section id="cheatsheet" class="section">
+    <div class="section-header">
+      <h2 class="section-title">📋 TypeScript Cheat Sheet</h2>
+      <p class="section-subtitle">Quick reference for the most important TypeScript concepts</p>
+    </div>
+    <div class="cheatsheet-grid">
+      <div class="cheat-card">
+        <h3>📦 Basic Types</h3>
+        <pre><code><span class="kw">let</span> name: <span class="type">string</span> = <span class="str">"Tanvi"</span>;
+<span class="kw">let</span> age: <span class="type">number</span> = 25;
+<span class="kw">let</span> active: <span class="type">boolean</span> = <span class="kw">true</span>;
+<span class="kw">let</span> nums: <span class="type">number</span>[] = [1, 2, 3];
+<span class="kw">let</span> pair: [<span class="type">string</span>, <span class="type">number</span>] = [<span class="str">"age"</span>, 25];</code></pre>
+      </div>
+      <div class="cheat-card">
+        <h3>🏗️ Interfaces</h3>
+        <pre><code><span class="kw">interface</span> <span class="type">User</span> {
+  name: <span class="type">string</span>;
+  age: <span class="type">number</span>;
+  email?: <span class="type">string</span>;       <span class="cmt">// optional</span>
+  <span class="kw">readonly</span> id: <span class="type">number</span>; <span class="cmt">// immutable</span>
+}</code></pre>
+      </div>
+      <div class="cheat-card">
+        <h3>🔧 Generics</h3>
+        <pre><code><span class="kw">function</span> identity&lt;<span class="type">T</span>&gt;(arg: <span class="type">T</span>): <span class="type">T</span> {
+  <span class="kw">return</span> arg;
+}
+
+<span class="kw">interface</span> <span class="type">ApiResponse</span>&lt;<span class="type">T</span>&gt; {
+  data: <span class="type">T</span>;
+  status: <span class="type">number</span>;
+}</code></pre>
+      </div>
+      <div class="cheat-card">
+        <h3>🛠️ Utility Types</h3>
+        <pre><code><span class="type">Partial</span>&lt;User&gt;     <span class="cmt">// all optional</span>
+<span class="type">Required</span>&lt;User&gt;    <span class="cmt">// all required</span>
+<span class="type">Pick</span>&lt;User, <span class="str">"name"</span>&gt; <span class="cmt">// subset</span>
+<span class="type">Omit</span>&lt;User, <span class="str">"id"</span>&gt;  <span class="cmt">// exclude</span>
+<span class="type">Record</span>&lt;<span class="type">string</span>, User&gt;  <span class="cmt">// map</span>
+<span class="type">ReturnType</span>&lt;<span class="kw">typeof</span> fn&gt;</code></pre>
+      </div>
+      <div class="cheat-card">
+        <h3>⚛️ React + TS</h3>
+        <pre><code><span class="kw">const</span> Button: <span class="type">React.FC</span>&lt;<span class="type">Props</span>&gt; = ({
+  label, onClick
+}) =&gt; (
+  &lt;button onClick={onClick}&gt;
+    {label}
+  &lt;/button&gt;
+);
+
+<span class="kw">const</span> [user, setUser] =
+  useState&lt;<span class="type">User</span> | <span class="type">null</span>&gt;(<span class="kw">null</span>);</code></pre>
+      </div>
+      <div class="cheat-card">
+        <h3>💡 Pro Pattern</h3>
+        <pre><code><span class="cmt">// Discriminated Union</span>
+<span class="kw">type</span> <span class="type">Shape</span> =
+  | { kind: <span class="str">"circle"</span>; radius: <span class="type">number</span> }
+  | { kind: <span class="str">"square"</span>; side: <span class="type">number</span> };
+
+<span class="cmt">// as const for literal types</span>
+<span class="kw">const</span> STATUS = [<span class="str">"ok"</span>, <span class="str">"err"</span>] <span class="kw">as const</span>;
+<span class="kw">type</span> <span class="type">S</span> = (<span class="kw">typeof</span> STATUS)[<span class="type">number</span>];</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resources Section -->
+  <section id="resources" class="section section-dark">
+    <div class="section-header">
+      <h2 class="section-title">🔗 Curated Resources</h2>
+      <p class="section-subtitle">The best learning materials, hand-picked and organized by category</p>
+    </div>
+    <div class="resources-grid">
+      <div class="resource-category">
+        <h3>🔷 TypeScript Core</h3>
+        <div class="resource-list">
+          <a href="https://typescriptlang.org/docs/handbook" class="resource-item" target="_blank">
+            <span class="resource-type">📖</span>
+            <div>
+              <strong>Official TS Handbook</strong>
+              <p>The definitive guide — start here</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://totaltypescript.com" class="resource-item" target="_blank">
+            <span class="resource-type">📚</span>
+            <div>
+              <strong>Total TypeScript</strong>
+              <p>Best comprehensive TS course (free beginners section)</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://youtube.com/@mattpocockuk" class="resource-item" target="_blank">
+            <span class="resource-type">🎥</span>
+            <div>
+              <strong>Matt Pocock YouTube</strong>
+              <p>Short, brilliant TS tips — perfect for daily learning</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://typescriptlang.org/play" class="resource-item" target="_blank">
+            <span class="resource-type">🔧</span>
+            <div>
+              <strong>TypeScript Playground</strong>
+              <p>Try TypeScript in the browser instantly</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://ts-error-translator.vercel.app" class="resource-item" target="_blank">
+            <span class="resource-type">🔧</span>
+            <div>
+              <strong>TS Error Translator</strong>
+              <p>Makes cryptic TS errors human-readable</p>
+            </div>
+            <span class="resource-level level-beginner">Beginner</span>
+          </a>
+        </div>
+      </div>
+      <div class="resource-category">
+        <h3>🏋️ Practice & Challenges</h3>
+        <div class="resource-list">
+          <a href="https://github.com/type-challenges/type-challenges" class="resource-item" target="_blank">
+            <span class="resource-type">🏋️</span>
+            <div>
+              <strong>Type Challenges</strong>
+              <p>LeetCode for TypeScript types</p>
+            </div>
+            <span class="resource-level level-intermediate">Intermediate</span>
+          </a>
+          <a href="https://typehero.dev" class="resource-item" target="_blank">
+            <span class="resource-type">🏋️</span>
+            <div>
+              <strong>TypeHero</strong>
+              <p>Interactive type challenges in the browser</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://exercism.org/tracks/typescript" class="resource-item" target="_blank">
+            <span class="resource-type">🏋️</span>
+            <div>
+              <strong>Exercism — TypeScript Track</strong>
+              <p>Free mentored exercises</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://adventofts.com" class="resource-item" target="_blank">
+            <span class="resource-type">🏋️</span>
+            <div>
+              <strong>Advent of TypeScript</strong>
+              <p>Annual type challenge calendar (December)</p>
+            </div>
+            <span class="resource-level level-advanced">Advanced</span>
+          </a>
+        </div>
+      </div>
+      <div class="resource-category">
+        <h3>🔧 Essential Tools</h3>
+        <div class="resource-list">
+          <a href="https://vitest.dev" class="resource-item" target="_blank">
+            <span class="resource-type">🔧</span>
+            <div>
+              <strong>Vitest</strong>
+              <p>Blazing fast TS-native test runner</p>
+            </div>
+            <span class="resource-level level-all">All</span>
+          </a>
+          <a href="https://zod.dev" class="resource-item" target="_blank">
+            <span class="resource-type">📦</span>
+            <div>
+              <strong>Zod</strong>
+              <p>TypeScript-first schema validation</p>
+            </div>
+            <span class="resource-level level-intermediate">Intermediate</span>
+          </a>
+          <a href="https://prisma.io" class="resource-item" target="_blank">
+            <span class="resource-type">🔧</span>
+            <div>
+              <strong>Prisma</strong>
+              <p>Type-safe database access for Node.js</p>
+            </div>
+            <span class="resource-level level-intermediate">Intermediate</span>
+          </a>
+          <a href="https://playwright.dev" class="resource-item" target="_blank">
+            <span class="resource-type">🔧</span>
+            <div>
+              <strong>Playwright</strong>
+              <p>Best E2E testing framework</p>
+            </div>
+            <span class="resource-level level-intermediate">Intermediate</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CLI Section -->
+  <section id="cli" class="section">
+    <div class="section-header">
+      <h2 class="section-title">⚡ CLI Learning Tool</h2>
+      <p class="section-subtitle">Learn TypeScript right from your terminal with an interactive CLI</p>
+    </div>
+    <div class="cli-demo">
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">ts-mastery — zsh</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="prompt">$</span>
+            <span class="command typing-animation">npx ts-mastery-hub</span>
+          </div>
+          <pre class="terminal-output ascii-art">
+ ████████╗███████╗    ███╗   ███╗ █████╗ ███████╗████████╗███████╗██████╗ ██╗   ██╗
+ ╚══██╔══╝██╔════╝    ████╗ ████║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗╚██╗ ██╔╝
+    ██║   ███████╗    ██╔████╔██║███████║███████╗   ██║   █████╗  ██████╔╝ ╚████╔╝
+    ██║   ╚════██║    ██║╚██╔╝██║██╔══██║╚════██║   ██║   ██╔══╝  ██╔══██╗  ╚██╔╝
+    ██║   ███████║    ██║ ╚═╝ ██║██║  ██║███████║   ██║   ███████╗██║  ██║   ██║
+    ╚═╝   ╚══════╝    ╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝   ╚═╝   ╚══════╝╚═╝  ╚═╝   ╚═╝</pre>
+          <div class="terminal-line">
+            <span class="menu-prompt">?</span>
+            <span class="menu-text">What would you like to explore?</span>
+          </div>
+          <div class="terminal-menu">
+            <div class="menu-item active">📚  Learning Paths</div>
+            <div class="menu-item">⚡  Quick Challenges</div>
+            <div class="menu-item">📋  Cheat Sheets</div>
+            <div class="menu-item">🗺️  Developer Roadmap</div>
+            <div class="menu-item">🔗  Curated Resources</div>
+            <div class="menu-item">💡  Pro Tips & Patterns</div>
+          </div>
+        </div>
+      </div>
+      <div class="cli-install">
+        <h3>Get Started in Seconds</h3>
+        <div class="install-steps">
+          <div class="install-step">
+            <span class="step-number">1</span>
+            <div class="install-code">
+              <code>git clone https://github.com/YOUR_USERNAME/ts-mastery-hub.git</code>
+            </div>
+          </div>
+          <div class="install-step">
+            <span class="step-number">2</span>
+            <div class="install-code">
+              <code>cd ts-mastery-hub && npm install</code>
+            </div>
+          </div>
+          <div class="install-step">
+            <span class="step-number">3</span>
+            <div class="install-code">
+              <code>npm run dev</code>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="nav-logo">TS</span>
+        <span>Mastery Hub</span>
+      </div>
+      <p>Built with ❤️ by <strong>Tanvi Geetika</strong> at <span style="color: #ee0000;">Red Hat</span></p>
+      <p class="footer-note">Made with TypeScript • Open Source • MIT License</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

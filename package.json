@@ -1,0 +1,45 @@
+{
+  "name": "ts-mastery-hub",
+  "version": "1.0.0",
+  "description": "🚀 An interactive TypeScript learning hub with a beautiful CLI tool and web companion — built for developers who want to master TypeScript and modern web development.",
+  "type": "module",
+  "bin": {
+    "ts-mastery": "./dist/cli/index.js"
+  },
+  "scripts": {
+    "build:cli": "tsc -p tsconfig.cli.json",
+    "build:web": "node scripts/build-web.js",
+    "build": "npm run build:cli && npm run build:web",
+    "start": "node dist/cli/index.js",
+    "dev": "tsx src/cli/index.ts",
+    "web": "open docs/index.html || xdg-open docs/index.html",
+    "learn": "node dist/cli/index.js",
+    "prepare": "npm run build:cli"
+  },
+  "keywords": [
+    "typescript",
+    "learning",
+    "interactive",
+    "cli",
+    "tutorial",
+    "education"
+  ],
+  "author": "Tanvi Geetika",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "boxen": "^7.1.1",
+    "ora": "^7.0.1",
+    "inquirer": "^9.2.12",
+    "gradient-string": "^2.0.2",
+    "figlet": "^1.7.0",
+    "cli-table3": "^0.6.3"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "tsx": "^4.7.0",
+    "@types/inquirer": "^9.0.7",
+    "@types/figlet": "^1.5.8",
+    "@types/gradient-string": "^1.1.5"
+  }
+}
