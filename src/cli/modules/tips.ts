@@ -193,6 +193,113 @@ function getUser(id: UserId) { /* ... */ }
 getUser(orderId("abc")); // ✅ Compile error! Can't mix them up.
 getUser(userId("abc"));  // ✅ Works!`,
   },
+  {
+    title: "Exhaustive Switch with `never`",
+    category: "Patterns",
+    content:
+      "Use the `never` type to make TypeScript enforce that you've handled every case in a switch statement. If you add a new union member later, you get a compile error reminding you to handle it.",
+    code: `type Status = "active" | "inactive" | "pending";
+
+function getLabel(status: Status): string {
+  switch (status) {
+    case "active":   return "✅ Active";
+    case "inactive": return "❌ Inactive";
+    case "pending":  return "⏳ Pending";
+    default:
+      // If you add a new status and forget to handle it,
+      // this line will show a compile error!
+      const _exhaustive: never = status;
+      return _exhaustive;
+  }
+}
+
+// Now add "archived" to Status...
+// TypeScript immediately tells you to handle it here! 🎉`,
+  },
+  {
+    title: "Builder Pattern with Method Chaining",
+    category: "Patterns",
+    content:
+      "Use TypeScript generics to create type-safe builders where each method adds to the type. The final object knows exactly which fields were set.",
+    code: `class QueryBuilder<T extends Record<string, unknown> = {}> {
+  private params: T;
+  constructor(params: T = {} as T) { this.params = params; }
+
+  where<K extends string, V>(key: K, value: V) {
+    return new QueryBuilder({ ...this.params, [key]: value } as T & Record<K, V>);
+  }
+
+  build(): T { return this.params; }
+}
+
+const query = new QueryBuilder()
+  .where("name", "Tanvi")
+  .where("age", 25)
+  .where("active", true)
+  .build();
+
+// Type of query: { name: string; age: number; active: boolean }
+// Fully typed — autocomplete works on every property! 🎉`,
+  },
+  {
+    title: "Type-Safe Event Emitter",
+    category: "Real World",
+    content:
+      "Create an event emitter where TypeScript knows the exact payload type for each event. No more `any` in event handlers.",
+    code: `type EventMap = {
+  "user:login":  { userId: string; timestamp: Date };
+  "user:logout": { userId: string };
+  "error":       { message: string; code: number };
+};
+
+class TypedEmitter<T extends Record<string, unknown>> {
+  private handlers = new Map<string, Function[]>();
+
+  on<K extends keyof T>(event: K, handler: (payload: T[K]) => void) {
+    const list = this.handlers.get(event as string) || [];
+    list.push(handler);
+    this.handlers.set(event as string, list);
+  }
+
+  emit<K extends keyof T>(event: K, payload: T[K]) {
+    this.handlers.get(event as string)?.forEach(fn => fn(payload));
+  }
+}
+
+const emitter = new TypedEmitter<EventMap>();
+emitter.on("user:login", (data) => {
+  console.log(data.userId);    // ✅ Typed as string
+  console.log(data.timestamp); // ✅ Typed as Date
+});
+emitter.emit("error", { message: "oops", code: 500 }); // ✅ Type-checked`,
+  },
+  {
+    title: "Assertion Functions",
+    category: "TypeScript 5+",
+    content:
+      "Assertion functions narrow types AND throw if the condition isn't met. They replace the common pattern of `if (!x) throw` + type assertion.",
+    code: `// Instead of this everywhere:
+if (!user) throw new Error("User not found");
+// (TypeScript still doesn't narrow after this in some cases)
+
+// Use an assertion function:
+function assertDefined<T>(
+  value: T | null | undefined,
+  message: string
+): asserts value is T {
+  if (value === null || value === undefined) {
+    throw new Error(message);
+  }
+}
+
+// Usage:
+const user: User | null = await findUser(id);
+assertDefined(user, "User not found");
+// After this line, TypeScript KNOWS user is User (not null)
+console.log(user.name); // ✅ No null check needed!
+
+// Works great with API responses, DB queries, config values`,
+  },
 ];
 
 export async function showTips(): Promise<void> {
