@@ -110,6 +110,102 @@ const CHALLENGES: Challenge[] = [
     explanation:
       "Template literal types create all possible combinations of the union members. With 2 colors × 2 sizes, you get 4 specific string literal types. This is incredibly useful for creating typed event systems, CSS class generators, and API route types.",
   },
+  {
+    id: 7,
+    title: "The satisfies Operator",
+    difficulty: "Intermediate",
+    question: "What is the type of `config.port` after using `satisfies`?",
+    codeSnippet: `const config = {\n  port: 3000,\n  host: "localhost",\n  debug: true\n} satisfies Record<string, string | number | boolean>;\n\nconst port = config.port;`,
+    options: [
+      "string | number | boolean",
+      "number",
+      "3000",
+      "unknown",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The `satisfies` operator (TS 4.9+) validates that an expression matches a type WITHOUT widening the inferred type. So `config.port` remains `number` (not widened to `string | number | boolean`). If you used a type annotation (`: Record<...>`) instead, the type WOULD be widened. This is why `satisfies` is so powerful — you get both validation AND narrow types.",
+  },
+  {
+    id: 8,
+    title: "Typeof with Arrays",
+    difficulty: "Beginner",
+    question: "What is the type of `Status`?",
+    codeSnippet: `const STATUSES = ["active", "inactive", "pending"] as const;\n\ntype Status = (typeof STATUSES)[number];`,
+    options: [
+      "string[]",
+      "string",
+      '"active" | "inactive" | "pending"',
+      "readonly string[]",
+    ],
+    correctAnswer: 2,
+    explanation:
+      "This is a very common pattern! `as const` makes the array readonly with literal types. `typeof STATUSES` gives us the tuple type `readonly [\"active\", \"inactive\", \"pending\"]`. Indexing with `[number]` extracts a union of all element types. This is great because you define the values ONCE (the array) and derive the type from it — no duplication!",
+  },
+  {
+    id: 9,
+    title: "Mapped Types",
+    difficulty: "Advanced",
+    question: "What does `Optional<User>` produce?",
+    codeSnippet: `interface User {\n  name: string;\n  age: number;\n  email: string;\n}\n\ntype Optional<T> = {\n  [K in keyof T]?: T[K]\n};\n\ntype Result = Optional<User>;`,
+    options: [
+      "Same as User — no change",
+      "{ name?: string; age?: number; email?: string }",
+      "{ name: string | undefined; age: number | undefined; email: string | undefined }",
+      "Compile error — invalid syntax",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "This is exactly how the built-in `Partial<T>` utility type works under the hood! `[K in keyof T]` iterates over every key in T, and `?:` makes each property optional. The result has all the same properties as User, but each one is optional. Understanding mapped types is key to understanding most of TypeScript's utility types.",
+  },
+  {
+    id: 10,
+    title: "Type Narrowing with `in`",
+    difficulty: "Intermediate",
+    question: "Does this code compile, and what type is `animal` inside the if block?",
+    codeSnippet: `interface Dog { bark(): void; breed: string; }\ninterface Cat { meow(): void; color: string; }\n\nfunction speak(animal: Dog | Cat) {\n  if ("bark" in animal) {\n    animal;  // What type here?\n  }\n}`,
+    options: [
+      "Dog | Cat — no narrowing with 'in'",
+      "Dog — narrowed by the 'in' check",
+      "Compile error — 'in' only works with strings",
+      "any",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "The `in` operator narrows union types! When you check `\"bark\" in animal`, TypeScript knows that only `Dog` has the `bark` property, so it narrows the type to `Dog` inside that block. This is a cleaner alternative to type guards when your interfaces have unique properties. It's especially useful when you don't have a discriminant property like `kind`.",
+  },
+  {
+    id: 11,
+    title: "Promise Return Types",
+    difficulty: "Beginner",
+    question: "What is the return type of this async function?",
+    codeSnippet: `async function fetchUser(id: number) {\n  const response = await fetch(\`/api/users/\${id}\`);\n  const data = await response.json();\n  return data as { name: string; email: string };\n}`,
+    options: [
+      "{ name: string; email: string }",
+      "Promise<{ name: string; email: string }>",
+      "Promise<any>",
+      "Promise<Response>",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "Async functions ALWAYS return a Promise. Even though the function body returns `{ name: string; email: string }`, the actual return type is `Promise<{ name: string; email: string }>`. TypeScript automatically wraps the return type in a Promise for async functions. When you `await` the function call, you unwrap the Promise and get the inner type.",
+  },
+  {
+    id: 12,
+    title: "keyof and Lookup Types",
+    difficulty: "Intermediate",
+    question: "What is the type of `value`?",
+    codeSnippet: `interface Config {\n  host: string;\n  port: number;\n  debug: boolean;\n}\n\nfunction getConfig<K extends keyof Config>(key: K): Config[K] {\n  const config: Config = { host: "localhost", port: 3000, debug: true };\n  return config[key];\n}\n\nconst value = getConfig("port");`,
+    options: [
+      "string | number | boolean",
+      "number",
+      "keyof Config",
+      "unknown",
+    ],
+    correctAnswer: 1,
+    explanation:
+      "This is the power of `keyof` with generics! When you call `getConfig(\"port\")`, TypeScript infers K as the literal type `\"port\"`. Then `Config[K]` becomes `Config[\"port\"]` which is `number`. The function returns different types depending on which key you pass — `getConfig(\"host\")` returns `string`, `getConfig(\"debug\")` returns `boolean`. This pattern is everywhere in well-typed libraries.",
+  },
 ];
 
 function getDifficultyColor(difficulty: string): string {
