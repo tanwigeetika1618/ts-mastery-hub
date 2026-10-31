@@ -2,7 +2,7 @@
 
 > An interactive TypeScript & modern web development learning hub with a beautiful CLI tool and web companion.
 
-**Built by [Tanvi Geetika](https://github.com) at [Red Hat](https://redhat.com), for engineers who want to level up.**
+**Built by [Tanvi Geetika](https://github.com/tanwigeetika1618) at [Red Hat](https://redhat.com), for engineers who want to level up.**
 
 ---
 
@@ -33,7 +33,7 @@ A stunning dark-themed website with:
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR_USERNAME/ts-mastery-hub.git
+git clone https://github.com/tanwigeetika1618/ts-mastery-hub.git
 cd ts-mastery-hub
 
 # Install dependencies
@@ -121,7 +121,7 @@ Contributions welcome! Feel free to:
 
 ## 📄 License
 
-MIT © [Tanvi Geetika](https://github.com)
+MIT © [Tanvi Geetika](https://github.com/tanwigeetika1618)
 
 ---
 
